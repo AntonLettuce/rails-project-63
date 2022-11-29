@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/AntonLettuce/rails-project-63/workflows/hexlet-check/badge.svg)](https://github.com/AntonLettuce/rails-project-63/actions)
-![CI status](https://github.com/AntonLettuce/rails-project-63/actions/workflows/master.yml/badge.svg)
+![CI status](https://github.com/AntonLettuce/rails-project-63/actions/workflows/main.yml/badge.svg)
 
 # HexletCode
 
