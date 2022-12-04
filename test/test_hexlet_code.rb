@@ -50,4 +50,22 @@ class TestHexletCode < TestCase
       end
     end
   end
+
+  def test_form_with_default_button
+    result = HexletCode.form_for @user do |f|
+      f.input :name
+      f.input :job
+      f.submit
+    end
+    assert_equal load_fixture("form_with_default_button.html"), result
+  end
+
+  def test_form_with_custom_button
+    result = HexletCode.form_for @user do |f|
+      f.input :name
+      f.input :job
+      f.submit "Wow"
+    end
+    assert_equal load_fixture("form_with_custom_button.html"), result
+  end
 end

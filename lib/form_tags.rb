@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-module TextTags
-  class TextTag
+module FormTags
+  class FormTag
     attr_reader :tag, :options
   end
 
-  class Input < TextTag
+  class Input < FormTag
     def initialize(prop, value, attrs)
       @tag = "input"
       @options = {
@@ -16,7 +16,7 @@ module TextTags
     end
   end
 
-  class Text < TextTag
+  class Text < FormTag
     attr_reader :children
 
     def initialize(prop, value, attrs)
@@ -27,6 +27,28 @@ module TextTags
         rows: 40
       }.merge!(attrs)
       @children = value
+    end
+  end
+
+  class Label < FormTag
+    attr_reader :children
+
+    def initialize(prop)
+      @tag = "label"
+      @options = {
+        for: prop
+      }
+      @children = prop.capitalize
+    end
+  end
+
+  class Button < FormTag
+    def initialize(value)
+      @tag = "input"
+      @options = {
+        type: "submit",
+        value: value
+      }
     end
   end
 end
