@@ -3,6 +3,7 @@
 module InputTag
   class Input < FormTag::FormTag
     def initialize(prop, value, attrs)
+      super()
       @tag = "input"
       @options = {
         name: prop,

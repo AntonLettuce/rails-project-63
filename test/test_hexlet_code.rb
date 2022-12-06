@@ -3,9 +3,10 @@
 require "test_helper"
 
 class TestHexletCode < TestCase
+  User = Struct.new(:name, :job, keyword_init: true)
+
   def setup
-    @User = Struct.new(:name, :job, keyword_init: true)
-    @user = @User.new(name: "Anton", job: "Frontend Developer")
+    @user = User.new(name: "Anton", job: "Frontend Developer")
   end
 
   def test_form_for_without_url

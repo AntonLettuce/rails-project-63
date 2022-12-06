@@ -5,6 +5,7 @@ module TextareaTag
     attr_reader :children
 
     def initialize(prop, value, attrs)
+      super()
       @tag = "textarea"
       @options = {
         name: prop,

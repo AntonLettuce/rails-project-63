@@ -5,6 +5,7 @@ module LabelTag
     attr_reader :children
 
     def initialize(prop)
+      super()
       @tag = "label"
       @options = {
         for: prop
