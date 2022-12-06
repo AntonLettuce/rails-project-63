@@ -6,3 +6,5 @@ lint:
 
 test:
 	rake test
+
+.PHONY: test

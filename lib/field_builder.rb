@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require "active_support/core_ext/string/inflections"
-require_relative "form_tags"
+require_relative "form_tags/button_tag"
+require_relative "form_tags/input_tag"
+require_relative "form_tags/textarea_tag"
+require_relative "form_tags/label_tag"
 
 module FieldBuilder
   class Builder
@@ -13,13 +16,14 @@ module FieldBuilder
     end
 
     def input(prop, as: :input, **attrs)
-      label = FormTags::Label.new(prop)
-      text_field = "FormTags::#{as.to_s.capitalize}".constantize.new(prop.to_s, user.public_send(prop), attrs)
+      label = LabelTag::Label.new(prop)
+      text_tag = as == :text ? TextareaTag::Text : InputTag::Input
+      text_field = text_tag.new(prop.to_s, user.public_send(prop), attrs)
       fields.push(label, text_field)
     end
 
     def submit(value = "Save")
-      fields << FormTags::Button.new(value)
+      fields << ButtonTag::Button.new(value)
     end
   end
 end

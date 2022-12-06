@@ -7,8 +7,8 @@ require_relative "field_builder"
 module HexletCode
   include FieldBuilder
 
-  def self.form_for(user, url: "#")
-    builder = Builder.new(user)
+  def self.form_for(entity, url: "#")
+    builder = Builder.new(entity)
     Tag.build("form", action: url, method: "post") do
       if block_given?
         yield(builder).map do |field|
