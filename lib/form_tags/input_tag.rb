@@ -4,10 +4,10 @@ module InputTag
   class Input < FormTag::FormTag
     def initialize(prop, value, attrs)
       super()
-      @tag = "input"
+      @tag = 'input'
       @options = {
         name: prop,
-        type: "text",
+        type: 'text',
         value: value
       }.merge!(attrs)
     end

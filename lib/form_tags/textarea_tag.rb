@@ -6,7 +6,7 @@ module TextareaTag
 
     def initialize(prop, value, attrs)
       super()
-      @tag = "textarea"
+      @tag = 'textarea'
       @options = {
         name: prop,
         cols: 20,

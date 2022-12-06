@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative "form_tags/button_tag"
-require_relative "form_tags/input_tag"
-require_relative "form_tags/textarea_tag"
-require_relative "form_tags/label_tag"
+require_relative 'form_tags/button_tag'
+require_relative 'form_tags/input_tag'
+require_relative 'form_tags/textarea_tag'
+require_relative 'form_tags/label_tag'
 
 module FieldBuilder
   class Builder
@@ -21,7 +21,7 @@ module FieldBuilder
       fields.push(label, text_field)
     end
 
-    def submit(value = "Save")
+    def submit(value = 'Save')
       fields << ButtonTag::Button.new(value)
     end
   end

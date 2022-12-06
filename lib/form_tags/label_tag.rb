@@ -6,7 +6,7 @@ module LabelTag
 
     def initialize(prop)
       super()
-      @tag = "label"
+      @tag = 'label'
       @options = {
         for: prop
       }
