@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = 'With help of this gem you can create HTML forms faster than ever'
   spec.homepage = 'https://github.com/AntonLettuce/rails-project-63'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.6.0'
+  spec.required_ruby_version = '>= 3.1.2'
 
   spec.metadata['allowed_push_host'] = 'https://github.com/AntonLettuce/rails-project-63'
 

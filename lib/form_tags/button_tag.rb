@@ -9,7 +9,7 @@ module ButtonTag
       @tag = 'input'
       @options = {
         type: 'submit',
-        value: value
+        value:
       }
     end
   end

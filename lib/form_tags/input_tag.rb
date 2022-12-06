@@ -8,7 +8,7 @@ module InputTag
       @options = {
         name: prop,
         type: 'text',
-        value: value
+        value:
       }.merge!(attrs)
     end
   end
