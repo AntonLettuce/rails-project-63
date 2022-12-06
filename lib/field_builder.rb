@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "active_support/core_ext/string/inflections"
 require_relative "form_tags/button_tag"
 require_relative "form_tags/input_tag"
 require_relative "form_tags/textarea_tag"
