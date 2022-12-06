@@ -25,6 +25,7 @@ Or install it yourself as:
 ## Usage
 
 Module `HexletCode` has one method `form_for(instance, url, &block)`.
+
 You can use that method without block to create empty HTML forms.
 
 ```ruby
@@ -35,7 +36,9 @@ end
 ```
 
 And if you want to fill your form with different types of inputs, just pass some data to block. For that action you can use methods `input` and `submit`.
+
 `input` will add label and input inside your form. It has optional parameter `as`, you can send it with `text` symbol and then you will get `textarea` instead of `input`.
+
 And `submit` method will add button to your form.
 
 ```ruby
@@ -56,7 +59,11 @@ end
 
 ## Makefile
 You can run different commands with the help of Makefile.
+
 For example:
+
 `make install` - to install this gem
+
 `make lint` - to check code for mistakes
+
 `make test` - to run tests
