@@ -4,11 +4,9 @@
 
 # HexletCode
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hexlet_code`. To experiment with that code, run `bin/console` for an interactive prompt.
+With help of this gem you can create HTML forms for different instances very fast. 
 
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
+## How to install
 
 Add this line to your application's Gemfile:
 
@@ -26,22 +24,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Module `HexletCode` has one method `form_for(instance, url, &block)`.
+You can use that method without block to create empty HTML forms.
 
-## Development
+```ruby
+HexletCode.form_for user, url: '/users' do |f|
+end
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+# <form action="/users" method="post"></form>
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+And if you want to fill your form with different types of inputs, just pass some data to block. For that action you can use methods `input` and `submit`.
+`input` will add label and input inside your form. It has optional parameter `as`, you can send it with `text` symbol and then you will get `textarea` instead of `input`.
+And `submit` method will add button to your form.
 
-## Contributing
+```ruby
+HexletCode.form_for user do |f|
+  f.input :name
+  f.input :job
+  f.submit
+end
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hexlet_code. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/hexlet_code/blob/master/CODE_OF_CONDUCT.md).
+# <form action="#" method="post">
+#   <label for="name">Name</label>
+#   <input name="name" type="text">
+#   <label for="job">Job</label>
+#   <input name="job" type="text" value="hexlet">
+#   <input type="submit" value="Save">
+# </form>
+```
 
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the HexletCode project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/hexlet_code/blob/master/CODE_OF_CONDUCT.md).
+## Makefile
+You can run different commands with the help of Makefile.
+For example:
+`make install` - to install this gem
+`make lint` - to check code for mistakes
+`make test` - to run tests
