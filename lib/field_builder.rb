@@ -7,17 +7,17 @@ require_relative 'form_tags/label_tag'
 
 module FieldBuilder
   class Builder
-    attr_reader :fields, :user
+    attr_reader :fields, :entity
 
-    def initialize(user)
+    def initialize(entity)
       @fields = []
-      @user = user
+      @entity = entity
     end
 
     def input(prop, as: :input, **attrs)
       label = LabelTag::Label.new(prop)
       text_tag = as == :text ? TextareaTag::Text : InputTag::Input
-      text_field = text_tag.new(prop.to_s, user.public_send(prop), attrs)
+      text_field = text_tag.new(prop.to_s, entity.public_send(prop), attrs)
       fields.push(label, text_field)
     end
 

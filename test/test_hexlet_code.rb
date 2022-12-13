@@ -11,12 +11,12 @@ class TestHexletCode < TestCase
 
   def test_form_for_without_url
     result = HexletCode.form_for @user
-    assert_equal '<form action="#" method="post"></form>', result
+    assert_equal load_fixture('form_without_action.html'), result
   end
 
   def test_form_for_with_url
     result = HexletCode.form_for @user, url: '/users'
-    assert_equal '<form action="/users" method="post"></form>', result
+    assert_equal load_fixture('form.html'), result
   end
 
   def test_form_fields_default

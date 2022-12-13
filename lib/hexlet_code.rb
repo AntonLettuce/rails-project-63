@@ -2,14 +2,20 @@
 
 require_relative 'hexlet_code/version'
 require_relative 'tag'
-require_relative 'field_builder'
 
 module HexletCode
-  include FieldBuilder
+  autoload 'FieldBuilder', 'field_builder'
 
   def self.form_for(entity, url: '#')
-    builder = Builder.new(entity)
-    Tag.build('form', action: url, method: 'post') do
+    form_props = {
+      tag: 'form',
+      options: {
+        action: url,
+        method: 'post'
+      }
+    }
+    builder = FieldBuilder::Builder.new(entity)
+    Tag.build(form_props[:tag], form_props[:options]) do
       if block_given?
         yield(builder).map do |field|
           children = field.class.method_defined?(:children) ? proc { field.children } : nil
